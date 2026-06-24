@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$"$if(dir)$ dir="$dir$"$endif$>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, minimal-scale=1" />
+$for(author-meta)$
+  <meta name="author" content="$author-meta$" />
+$endfor$
+$if(date-meta)$
+  <meta name="dcterms.date" content="$date-meta$" />
+$endif$
+$if(keywords)$
+  <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
+$endif$
+$if(description-meta)$
+  <meta name="description" content="$description-meta$" />
+$endif$
+  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+
+  <link rel="stylesheet" href="https://www.w3.org/Talks/Tools/style-2025/slides.css">
+  <!-- <script src="https://www.w3.org/Talks/Tools/Shower3-2/shower.js"></script> -->
+  <!-- <script src="https://www.w3.org/Talks/Tools/Shower3-2/iframe-fixup.js"></script> -->
+  <script src="https://www.w3.org/Talks/Tools/b6plus/b6plus.js"></script>
+
+$for(css)$
+  <link rel="stylesheet" href="$css$" />
+$endfor$
+$for(header-includes)$
+  $header-includes$
+$endfor$
+$if(math)$
+$if(mathjax)$
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+$endif$
+  $math$
+$endif$
+</head>
+<body class="shower fade-in hidemouse incremental-symmetric duration=$if(duration)$$duration$$else$10$endif$">
+
+$for(include-before)$
+$include-before$
+$endfor$
+
+$instructions()$
+
+$if(abstract)$
+<div class="comment abstract">
+<h1 class="abstract-title">$abstract-title$</h1>
+$abstract$
+</div>
+$endif$
+
+$if(no-progress)$$else$
+<!-- Remove this element if you don't want a progress bar: -->
+<div class=progress></div>
+$endif$
+
+$if(no-clock)$$else$
+<!-- Remove this element if you don't want the remaining time in
+     index mode and on the 2nd screen. If you keep it, you may want
+     to add the class "duration=n" on BODY, where n is the initial
+     number of minutes on the clock. Default is 30. -->
+$if(full-clock)$
+<!-- Alternative: Show also real time and elapsed time. -->
+<div class=fullclock></div>
+$else$
+<div class=clock></div>
+$endif$
+$endif$
+
+<!-- What a screen reader should say on leaving slide mode,
+     instead of the default ‘Stopped.’ -->
+<div role=region aria-live=assertive>
+  Leaving slide mode.
+</div>
+
+$if(no-title-slide)$$else$
+$title-slide()$
+$endif$
+
+$body$
+
+$for(include-after)$
+$include-after$
+$endfor$
+
+$tweaks()$
+</body>
+</html>

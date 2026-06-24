@@ -1,0 +1,19 @@
+  <section class="slide cover" aria-label="slide">
+   <h1>$title$</h1>
+   $if(subtitle)$
+   <h2>$subtitle$</h2>
+   $endif$
+   $if(author)$
+   <p>
+     <a $if(author-url)$href="$author-url$"$endif$>$author$</a>
+     $if(institution)$
+     (<a $if(institution-url)$href="$institution-url$"$endif$>$institution$</a>)
+     $endif$
+   </p>
+   $endif$
+   $if(venue)$
+   <address><a $if(venue-url)$href="$venue-url$"$endif$>$venue$</a></address>
+   $endif$
+   $if(date)$<time datetime="$date-meta$">$date$</time>$endif$
+  </section>
+
